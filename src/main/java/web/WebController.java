@@ -1,6 +1,4 @@
 package web;
-
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,19 +33,20 @@ public class WebController {
         return response;
     }
 
-    @RequestMapping(value = "/account", method = RequestMethod.POST)
+   @RequestMapping(value = "/account", method = RequestMethod.POST)
     public @ResponseBody Map createAccount(
             @RequestBody String accountSignupParams,
             HttpServletResponse httpResponse) throws IOException, JSONException {
 
-        JSONObject jsonBody = new JSONObject(accountSignupParams);
-        Map response = new HashMap<>();
-        response.put("status", "accountCreated");
-        httpResponse.setStatus(HttpServletResponse.SC_OK);
+       JSONObject jsonBody = new JSONObject(accountSignupParams);
 
-        return response;
-    }
+       String accountName = jsonBody.getString("name");
+       Map response = new HashMap<>();
+       response.put("status", "accountCreated");
+       response.put("accountName", accountName);
+       httpResponse.setStatus(HttpServletResponse.SC_OK);
 
-
+       return response;
+   }
 
 }
