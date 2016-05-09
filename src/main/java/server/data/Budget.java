@@ -1,4 +1,4 @@
-package data;
+package server.data;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

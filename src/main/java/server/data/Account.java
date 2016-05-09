@@ -1,5 +1,4 @@
-package data;
-
+package server.data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +19,10 @@ public class Account {
     private String password;
 
     ArrayList<Budget> listBudgets;
+
+    public Account() {
+        super();
+    }
 
     public Account(String email, String password) {
         this.email = email;
