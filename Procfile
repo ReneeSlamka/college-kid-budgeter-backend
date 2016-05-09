@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar target/college-kid-budgeter-backend-1.0-SNAPSHOT.jar
